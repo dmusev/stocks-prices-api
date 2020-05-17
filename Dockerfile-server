@@ -1,0 +1,18 @@
+FROM node:10.5.0
+
+RUN apt-get update
+
+# Install globally
+RUN apt-get install -y telnet
+
+ENV HOME=/home/node
+
+# BUILD & PREPARE THE BACKEND SIDE
+WORKDIR ${HOME}/app
+COPY ./ .
+RUN ls -la
+RUN npm install
+RUN ls -la
+RUN chown -R node:node $HOME
+
+CMD ["sh", "-c", " npm start"]

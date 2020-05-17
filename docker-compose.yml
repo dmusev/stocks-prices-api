@@ -1,0 +1,18 @@
+version: "3.4"
+services:
+# =========================== NodeJS service ===========================
+  server:
+    container_name: ${PROJECT_SHORT_NAME}-server
+    image: ${PROJECT_SHORT_NAME}-server
+    build:
+      context: ./
+      dockerfile: Dockerfile-server
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+    - NODE_PORT=${NODE_PORT}
+    - NODE_HOST=${NODE_HOST}
+    - NODE_ENV=${NODE_ENV}
+    - CMC_API_KEY=${CMC_API_KEY}
+    - PROJECT_SHORT_NAME=${PROJECT_SHORT_NAME}
