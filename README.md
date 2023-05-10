@@ -1,4 +1,4 @@
-# Dockerised Simple Stocks API
+# Simple Stocks API with Docker
 
 ## :bulb: Known prerequisites
 
